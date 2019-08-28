@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h3>CODING CHALLENGE-5</h3>
+<script>
+
+var john ={
+	fullname:'chaitanya singh',
+	bills:[124, 48,268,180,42],
+	calcTips:function() {
+	this.tips=[];
+	this.finalvalues=[];
+	
+	for(var i=0;i<this.bills.length;i++)
+	{
+		<!-- //percentage rule -->
+		var percentage;
+		var bill = this.bills[i];
+		if(bill[i]<50)
+		{
+			percentage=.2
+		}else if (bill[i]>=50 && bill<200){
+			percentage= .15;
+		}else{
+			percentage=.1;
+		}
+		
+		this.tips[i]=bill * percentage;
+		this.finalvalues[i]= bill + bill * percentage
+		
+		}
+	}
+}
+
+var mark ={
+	fullname:'mark_chaitanya',
+	bills:[77,110,475,45],
+	calcTips:function() {
+	this.tips=[];
+	this.finalvalues=[];
+	
+	for(var i=0;i<this.bills.length;i++)
+	{
+		<!-- //percentage rule -->
+		var percentage;
+		var bill = this.bills[i];
+		
+		if(bill<100)
+		{
+			percentage=.2
+		}else if (bill>=100 && bill<300){
+			percentage= .1;
+		}else{
+			percentage=.25;
+		}
+		
+		this.tips[i]=bill * percentage;
+		this.finalvalues[i]= bill + bill * percentage
+		
+		}
+	}
+}
+
+function calcAverage(tips ){
+	var sum=0;
+	for (var i=0;i<tips.length;i++){
+		sum = sum+tips[i];
+	}
+	return sum/tips.length;
+}
+
+john.calcTips();
+mark.calcTips();
+
+john.average =calcAverage(john.tips);
+mark.average =calcAverage(mark.tips);
+console.log(john, mark);
+
+if(john.average>mark.average){
+	console.log(john.fullname + '\'s family pays the higher bill'+ john.average);
+}else if(mark.average>john.average){
+	console.log(mark.fullname + '\'s family pays the higher bill'+ mark.average);
+}
+</script>
+</body>
+</html>
